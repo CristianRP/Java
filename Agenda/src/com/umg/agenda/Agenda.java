@@ -18,6 +18,7 @@ public class Agenda {
      */
     public static void main(String[] args) {
         JFrame jFrame = new AgendaView();
+        jFrame.setTitle("Agenda UMG");
         jFrame.setVisible(true);
     }
     
