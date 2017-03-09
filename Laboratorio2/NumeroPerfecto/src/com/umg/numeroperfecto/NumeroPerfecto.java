@@ -18,8 +18,8 @@ public class NumeroPerfecto extends Application {
 
 
     public static void main(String[] args) {
-        //launch(args);
-        matriz();
+        launch(args);
+        //matriz();
     }
 
     private static void matriz() {

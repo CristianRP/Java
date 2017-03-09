@@ -34,7 +34,7 @@ public class HandlerFile {
         private static final HandlerFile INSTANCE = new HandlerFile();
     }
 
-    ArrayList<String> placas = new ArrayList<>();
+    public static ArrayList<String> placas = new ArrayList<>();
 
     public void readFile(String url) {
         BufferedReader r;
@@ -67,8 +67,11 @@ public class HandlerFile {
         String msg_encontrada = "--Placa %1$s encontrada!";
         String msg_placa_anterior = "Placa anterior: %1$s";
         String msg_placa_posterior = "Placa posterior: %1$s";
+        boolean encontrado = false;
         for (int i = 0; i < placas.size(); i++) {
             if (placas.get(i).equals(placa)) {
+                encontrado = true;
+                print(placas.get(i));
                 print(String.format(Locale.getDefault(), msg_encontrada, placas.get(i)));
                 if (placas.indexOf(placas.get(i)) == 0) {
                     print("**Este es el primer registro!");
@@ -80,10 +83,10 @@ public class HandlerFile {
                 } else {
                     print("**Este es el último registro!");
                 }
-            } else if (!placas.get(i).equals(placa)) {
-                print("Esta placa no existe en el registro!");
-                return;
-            }
+            } 
+        }
+        if (!encontrado) {
+            print("Esta placa no existe en el registro!");
         }
     }
 }
